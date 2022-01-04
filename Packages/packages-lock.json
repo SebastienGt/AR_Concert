@@ -1,18 +1,42 @@
 {
   "dependencies": {
     "com.ptc.vuforia.engine": {
-      "version": "file:com.ptc.vuforia.engine-10.3.2.tgz",
+      "version": "git+https://git-packages.developer.vuforia.com#9.6.4",
       "depth": 0,
-      "source": "local-tarball",
+      "source": "git",
       "dependencies": {
         "com.unity.ugui": "1.0.0"
-      }
+      },
+      "hash": "868c7672e6ea87b1718b3c63139570c152fb3ec2"
     },
-    "com.unity.cinemachine": {
-      "version": "2.6.11",
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.2d.tilemap": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
+    "com.unity.ads": {
+      "version": "3.7.5",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.analytics": {
+      "version": "3.6.12",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.collab-proxy": {
@@ -62,6 +86,20 @@
       "depth": 1,
       "source": "registry",
       "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.purchasing": {
+      "version": "4.0.3",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unityanalytics": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0",
+        "com.unity.services.core": "1.0.1"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.services.core": {
