@@ -12,7 +12,6 @@ public class Musician : MonoBehaviour
     public AudioSource audioSource;
     public bool playing;
     public float healthDecayingSpeed;
-    public float initialInstrumentHealth;
 
     private float t;
 
@@ -38,7 +37,7 @@ public class Musician : MonoBehaviour
     {
         if (playing) 
         {
-            instrument.health -= healthDecayingSpeed * Time.deltaTime;
+            instrument.health -= healthDecayingSpeed * Time.fixedDeltaTime;
             statsUI.Find("InstrumentHealthBar").Find("FillBar").GetComponent<Image>().fillAmount = instrument.health / instrument.initialHealth;
             if (instrument.health <= 0) {
                 playing = false;
