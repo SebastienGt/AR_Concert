@@ -45,9 +45,9 @@ The world reference system is defined by the device.
 # Sources
 ## 3D Models and Animations
 
-- Playing people:
-- Instruments: 
-- Music shop:
+- Playing people: https://ko-fi.com/s/642143592a
+- Instruments: https://www.turbosquid.com/3d-models/lemmy-kilmister-s-bass-guitar-obj-free/1059195
+- Music shop: https://www.turbosquid.com/3d-models/modern-house-model-1235776
 
 ## Music
  
