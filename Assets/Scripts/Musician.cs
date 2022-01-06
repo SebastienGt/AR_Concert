@@ -41,7 +41,7 @@ public class Musician : MonoBehaviour
             statsUI.Find("InstrumentHealthBar").Find("FillBar").GetComponent<Image>().fillAmount = instrument.health / instrument.initialHealth;
             if (instrument.health <= 0) {
                 playing = false;
-                audioSource.Stop();
+                audioSource.Pause();
                 instrument.gameObject.SetActive(true);
                 wearableInstrument.gameObject.SetActive(false);
                 statsUI.gameObject.SetActive(false);
