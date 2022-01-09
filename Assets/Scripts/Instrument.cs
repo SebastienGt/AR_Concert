@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+
 
 public class Instrument : MonoBehaviour
 {
@@ -9,17 +11,7 @@ public class Instrument : MonoBehaviour
     public bool moving = false;
     public float health;
     public float initialHealth;
-
-
-    private void Start()
-    {
-    }
-
-    public void Update()
-    {
-
-    }
-
+   
     public void Break()
     {
         isBroken = true;
