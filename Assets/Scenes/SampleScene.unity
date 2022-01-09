@@ -123,35 +123,25 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!21 &223198382
-Material:
-  serializedVersion: 6
+--- !u!1 &118216609 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4573722257459468635, guid: 75b69c7650f2845519810bd50220b4f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 870171458}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &118216610
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: 'QR_MusicianMaterial
-
-    58028'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 1f292f2cfb714085bf10d4a4214dd0b0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
+  m_GameObject: {fileID: 118216609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c9c53b242d24fea80649482aa2677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 3a744e82eb4ee4702a601652413ebfeb, type: 3}
 --- !u!1 &230960266 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 99ed7d6cdfc614c0191f7ba8df3321bf,
@@ -169,6 +159,7 @@ GameObject:
   - component: {fileID: 339429932}
   - component: {fileID: 339429934}
   - component: {fileID: 339429933}
+  - component: {fileID: 339429935}
   m_Layer: 5
   m_Name: CatalanFlagImg
   m_TagString: Untagged
@@ -233,6 +224,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 339429931}
   m_CullTransparentMesh: 1
+--- !u!114 &339429935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 339429931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43277ba5f16704d19a53cf3dbf9776de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flagCube: {fileID: 610674066}
+  musician: {fileID: 1433003107}
 --- !u!1001 &351263905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -444,35 +449,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 426646812}
   m_CullTransparentMesh: 1
---- !u!21 &428007551
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'QR_BassMaterial
-
-    57868'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4b9938997e9443538ba7c3356ee366ef, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &443780411
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,6 +709,115 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548587875}
   m_CullTransparentMesh: 1
+--- !u!1001 &610674063
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1365252006608409204, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1458971155188544807, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 51cf0d838f2ba4079ba0e3bb937efc57, type: 2}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.84
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.0172353
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -11.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573722257459468635, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_Name
+      value: CatalanFlagCube
+      objectReference: {fileID: 0}
+    - target: {fileID: 4573722257459468635, guid: 75b69c7650f2845519810bd50220b4f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 75b69c7650f2845519810bd50220b4f6, type: 3}
+--- !u!1 &610674064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4573722257459468635, guid: 75b69c7650f2845519810bd50220b4f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 610674063}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &610674065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 610674064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e8c9c53b242d24fea80649482aa2677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: e7e68e38ae5f34e079d6694b00b90449, type: 3}
+--- !u!4 &610674066 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
+    type: 3}
+  m_PrefabInstance: {fileID: 610674063}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,7 +959,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 428007551}
+  - {fileID: 989306181}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -962,6 +1047,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &708840929
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'QR_MusicianMaterial
+
+    25734'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1f292f2cfb714085bf10d4a4214dd0b0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1001 &870171458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -972,7 +1086,7 @@ PrefabInstance:
     - target: {fileID: 1365252006608409204, guid: 75b69c7650f2845519810bd50220b4f6,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3925661192764580814, guid: 75b69c7650f2845519810bd50220b4f6,
         type: 3}
@@ -1039,8 +1153,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7084367122375267462, guid: 75b69c7650f2845519810bd50220b4f6, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75b69c7650f2845519810bd50220b4f6, type: 3}
 --- !u!4 &870171459 stripped
 Transform:
@@ -1095,7 +1208,7 @@ GameObject:
   - component: {fileID: 970802223}
   - component: {fileID: 970802225}
   - component: {fileID: 970802224}
-  - component: {fileID: 970802227}
+  - component: {fileID: 970802226}
   m_Layer: 5
   m_Name: FrenchFlagImg
   m_TagString: Untagged
@@ -1160,7 +1273,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970802222}
   m_CullTransparentMesh: 1
---- !u!114 &970802227
+--- !u!114 &970802226
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1174,6 +1287,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flagCube: {fileID: 870171459}
   musician: {fileID: 1433003107}
+--- !u!21 &989306181
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'QR_BassMaterial
+
+    25402'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 4b9938997e9443538ba7c3356ee366ef, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []
 --- !u!1 &1149020842
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1420,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1986370623}
+  - {fileID: 2010127126}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2003,10 +2145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99b04aa4fcf1adf4c8e6dd9579fbe409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flags:
+  - {fileID: 610674065}
+  - {fileID: 118216610}
   statsUI: {fileID: 1826967474}
   instrument: {fileID: 1567082703}
   wearableInstrument: {fileID: 230960266}
-  playingAudioClip: {fileID: 8300000, guid: 3a744e82eb4ee4702a601652413ebfeb, type: 3}
+  playingAudioClip: {fileID: 0}
   audioSource: {fileID: 1877516429}
   playing: 0
   healthDecayingSpeed: 5
@@ -3054,13 +3199,13 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!43 &1930783750
+--- !u!43 &1963878958
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: ImageTargetMesh58018
+  m_Name: ImageTargetMesh25724
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3218,35 +3363,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!21 &1986370623
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 'QR_ShopMaterial
-
-    57906'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 79c16bc99f2248af8558916b1608c8dd, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
-  m_BuildTextureStacks: []
 --- !u!1 &2007433977
 GameObject:
   m_ObjectHideFlags: 0
@@ -3275,7 +3391,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007433977}
-  m_Mesh: {fileID: 1930783750}
+  m_Mesh: {fileID: 1963878958}
 --- !u!23 &2007433979
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3295,7 +3411,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 223198382}
+  - {fileID: 708840929}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3384,3 +3500,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &2010127126
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 'QR_ShopMaterial
+
+    25490'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 79c16bc99f2248af8558916b1608c8dd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
+  m_BuildTextureStacks: []

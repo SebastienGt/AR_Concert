@@ -1,10 +1,12 @@
- using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
 public class Musician : MonoBehaviour
 {
+    public List<FlagCube> flags;
+    FlagCube closestFlag;
     public Transform statsUI;
     public Instrument instrument;
     public GameObject wearableInstrument;
@@ -18,11 +20,13 @@ public class Musician : MonoBehaviour
     private readonly float START_MOVING_INSTRUMENT_DIST = 4.0f;
     private readonly float START_PLAYING_DIST = 2.0f;
     private readonly float LERP_SPEED = 1.0f;
+    private readonly float FLAG_DIST_THRESH = 5.0f;
 
     void Start()
     {
         statsUI.gameObject.SetActive(false);
         playing = false;
+        playingAudioClip = null;
     }
 
     void Update()
@@ -33,25 +37,55 @@ public class Musician : MonoBehaviour
         }
     }
 
+    void BreakInstrumentStopPlaying()
+    {
+        instrument.health = 0;
+        playing = false;
+        audioSource.Pause();
+        instrument.gameObject.SetActive(true);
+        wearableInstrument.gameObject.SetActive(false);
+        statsUI.gameObject.SetActive(false);
+        instrument.Break();
+    }
+
     void FixedUpdate()
     {
+        float minDist = 99999999.0f;
+        closestFlag = null;
+        if (flags == null) {
+            Debug.Log("flags == null");
+        }
+        foreach (FlagCube flagCube in flags)
+        {
+            if (flagCube.gameObject.activeSelf) {
+                float dist = Vector3.Distance(transform.position, flagCube.transform.position);
+                if (dist < FLAG_DIST_THRESH && dist < minDist)
+                {
+                    minDist = dist;
+                    closestFlag = flagCube;
+                }
+            }
+        }
+        if (playing && closestFlag.clip != playingAudioClip) 
+        {
+            BreakInstrumentStopPlaying();
+        } 
+        else if (closestFlag != null)
+        {
+            playingAudioClip = closestFlag.clip;
+        }
         if (playing) 
         {
             instrument.health -= healthDecayingSpeed * Time.fixedDeltaTime;
             statsUI.Find("InstrumentHealthBar").Find("FillBar").GetComponent<Image>().fillAmount = instrument.health / instrument.initialHealth;
             if (instrument.health <= 0) {
-                playing = false;
-                audioSource.Pause();
-                instrument.gameObject.SetActive(true);
-                wearableInstrument.gameObject.SetActive(false);
-                statsUI.gameObject.SetActive(false);
-                instrument.Break();
+                BreakInstrumentStopPlaying();
             }
         } 
         else if (instrument.moving)
         {
             instrument.transform.position = Vector3.Lerp(instrument.transform.position, transform.position, t * LERP_SPEED);
-            if (Vector3.Distance(instrument.transform.position, transform.position) <= START_PLAYING_DIST)
+            if (playingAudioClip != null && Vector3.Distance(instrument.transform.position, transform.position) <= START_PLAYING_DIST)
             {
                 statsUI.gameObject.SetActive(true);
                 instrument.moving = false;
