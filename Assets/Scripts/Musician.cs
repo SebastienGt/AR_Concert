@@ -6,7 +6,7 @@ using UnityEngine;
 public class Musician : MonoBehaviour
 {
     public List<FlagCube> flags;
-    FlagCube closestFlag;
+    FlagCube biggestFlag;
     public Transform statsUI;
     public Instrument instrument;
     public GameObject wearableInstrument;
@@ -20,7 +20,7 @@ public class Musician : MonoBehaviour
     private readonly float START_MOVING_INSTRUMENT_DIST = 4.0f;
     private readonly float START_PLAYING_DIST = 2.0f;
     private readonly float LERP_SPEED = 1.0f;
-    private readonly float FLAG_DIST_THRESH = 5.0f;
+    private readonly float FLAG_DIST_THRESH = 10.0f;
 
     void Start()
     {
@@ -50,32 +50,43 @@ public class Musician : MonoBehaviour
 
     void FixedUpdate()
     {
-        float minDist = 99999999.0f;
-        closestFlag = null;
-        if (flags == null) {
-            Debug.Log("flags == null");
-        }
+        float highestScale = 0.0f;
+        biggestFlag = null;
         foreach (FlagCube flagCube in flags)
         {
             if (flagCube.gameObject.activeSelf) {
+                float scale = flagCube.transform.localScale.x;
                 float dist = Vector3.Distance(transform.position, flagCube.transform.position);
-                if (dist < FLAG_DIST_THRESH && dist < minDist)
+                if (dist < FLAG_DIST_THRESH && scale > highestScale)
                 {
-                    minDist = dist;
-                    closestFlag = flagCube;
+                    highestScale = scale;
+                    if (biggestFlag != null)
+                    {
+                        if (biggestFlag.halo == null) {
+                            Debug.Log("Null halo.");
+                        } else {
+                            biggestFlag.halo.enabled = false;
+                        }
+                    }
+                    biggestFlag = flagCube;
                 }
-            }
+            }  
         }
-        if (playing && closestFlag.clip != playingAudioClip) 
+        if (biggestFlag != null)
         {
-            BreakInstrumentStopPlaying();
-        } 
-        else if (closestFlag != null)
-        {
-            playingAudioClip = closestFlag.clip;
+            if (biggestFlag.halo == null) {
+                Debug.Log("Null halo.");
+            } else {
+                biggestFlag.halo.enabled = true;
+            }
+            playingAudioClip = biggestFlag.clip;
         }
         if (playing) 
         {
+            if (biggestFlag != null  && biggestFlag.clip != playingAudioClip)
+            {
+                BreakInstrumentStopPlaying();
+            }
             instrument.health -= healthDecayingSpeed * Time.fixedDeltaTime;
             statsUI.Find("InstrumentHealthBar").Find("FillBar").GetComponent<Image>().fillAmount = instrument.health / instrument.initialHealth;
             if (instrument.health <= 0) {

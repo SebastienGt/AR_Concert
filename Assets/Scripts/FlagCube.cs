@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FlagCube : MonoBehaviour
 {
+    public Behaviour halo;
     public AudioClip clip;
     // Start is called before the first frame update
     void Start()

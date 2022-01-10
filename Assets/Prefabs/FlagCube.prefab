@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 1365252006608409204}
   - component: {fileID: 1458971155188544807}
   - component: {fileID: 2918728042722011178}
-  - component: {fileID: 3988889590475198226}
+  - component: {fileID: 3812617728440122839}
+  - component: {fileID: 3943810839772422318}
+  - component: {fileID: 3003854704712629813}
   m_Layer: 0
   m_Name: FlagCube
   m_TagString: Untagged
@@ -123,7 +125,7 @@ MonoBehaviour:
   onSelectedFingerUp:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3988889590475198226
+--- !u!114 &3812617728440122839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,7 +134,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 4573722257459468635}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4eda371e5375f454490a86f21559ee38, type: 3}
+  m_Script: {fileID: 11500000, guid: e8c9c53b242d24fea80649482aa2677a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 3a744e82eb4ee4702a601652413ebfeb, type: 3}
+--- !u!114 &3943810839772422318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573722257459468635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c73c1ab94e28d244827af556dca1ed2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Use:
@@ -142,7 +157,19 @@ MonoBehaviour:
     RequiredMouseButtons: 0
     RequiredSelectable: {fileID: 2918728042722011178}
   _camera: {fileID: 0}
+  relative: 0
   sensitivity: 1
   damping: -1
-  inertia: 0
-  remainingTranslation: {x: 0, y: 0, z: 0}
+  remainingScale: {x: 0, y: 0, z: 0}
+--- !u!122 &3003854704712629813
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4573722257459468635}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4282551823
+  m_Size: 2
