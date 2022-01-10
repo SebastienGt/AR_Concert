@@ -85,7 +85,7 @@ public class Musician : MonoBehaviour
         else if (instrument.moving)
         {
             instrument.transform.position = Vector3.Lerp(instrument.transform.position, transform.position, t * LERP_SPEED);
-            if (playingAudioClip != null && Vector3.Distance(instrument.transform.position, transform.position) <= START_PLAYING_DIST)
+            if (Vector3.Distance(instrument.transform.position, transform.position) <= START_PLAYING_DIST)
             {
                 statsUI.gameObject.SetActive(true);
                 instrument.moving = false;
@@ -100,7 +100,7 @@ public class Musician : MonoBehaviour
             }
             t += Time.fixedDeltaTime;
         }
-        else if (instrument.gameObject.activeSelf && !instrument.isBroken && Vector3.Distance(instrument.transform.position, transform.position) < START_MOVING_INSTRUMENT_DIST) 
+        else if (playingAudioClip != null && instrument.gameObject.activeSelf && !instrument.isBroken && Vector3.Distance(instrument.transform.position, transform.position) < START_MOVING_INSTRUMENT_DIST)
         {
             instrument.moving = true;
             t = 0;
