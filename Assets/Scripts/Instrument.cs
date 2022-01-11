@@ -11,6 +11,7 @@ public class Instrument : MonoBehaviour
     public bool moving = false;
     public float health;
     public float initialHealth;
+    public Vector3 initialPos;
    
     public void Break()
     {

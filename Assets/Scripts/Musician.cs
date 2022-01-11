@@ -27,11 +27,12 @@ public class Musician : MonoBehaviour
         statsUI.gameObject.SetActive(false);
         playing = false;
         playingAudioClip = null;
+        GetComponent<Animator>().enabled = false;
     }
 
     void Update()
     {
-        if (statsUI.gameObject.activeSelf && GetComponent<Renderer>().isVisible)
+        if (statsUI.gameObject.activeSelf)
         {
             updateUIPosition();
         }
@@ -46,6 +47,8 @@ public class Musician : MonoBehaviour
         wearableInstrument.gameObject.SetActive(false);
         statsUI.gameObject.SetActive(false);
         instrument.Break();
+        GetComponent<Animator>().enabled = false;
+        instrument.transform.position = instrument.initialPos;
     }
 
     void FixedUpdate()
@@ -55,38 +58,27 @@ public class Musician : MonoBehaviour
         foreach (FlagCube flagCube in flags)
         {
             if (flagCube.gameObject.activeSelf) {
+                flagCube.halo.enabled = false;
                 float scale = flagCube.transform.localScale.x;
                 float dist = Vector3.Distance(transform.position, flagCube.transform.position);
                 if (dist < FLAG_DIST_THRESH && scale > highestScale)
                 {
                     highestScale = scale;
-                    if (biggestFlag != null)
-                    {
-                        if (biggestFlag.halo == null) {
-                            Debug.Log("Null halo.");
-                        } else {
-                            biggestFlag.halo.enabled = false;
-                        }
-                    }
                     biggestFlag = flagCube;
                 }
             }  
         }
         if (biggestFlag != null)
         {
-            if (biggestFlag.halo == null) {
-                Debug.Log("Null halo.");
-            } else {
-                biggestFlag.halo.enabled = true;
+            biggestFlag.halo.enabled = true;
+            if (playing && biggestFlag.clip != playingAudioClip)
+            {
+                BreakInstrumentStopPlaying();
             }
             playingAudioClip = biggestFlag.clip;
         }
         if (playing) 
         {
-            if (biggestFlag != null  && biggestFlag.clip != playingAudioClip)
-            {
-                BreakInstrumentStopPlaying();
-            }
             instrument.health -= healthDecayingSpeed * Time.fixedDeltaTime;
             statsUI.Find("InstrumentHealthBar").Find("FillBar").GetComponent<Image>().fillAmount = instrument.health / instrument.initialHealth;
             if (instrument.health <= 0) {
@@ -105,6 +97,7 @@ public class Musician : MonoBehaviour
                 playing = true;
                 if (!audioSource.isPlaying) {
                     Debug.Log("Starting to play.");
+                    GetComponent<Animator>().enabled = true;
                     audioSource.clip = playingAudioClip;
                     audioSource.Play();
                 }
@@ -114,6 +107,7 @@ public class Musician : MonoBehaviour
         else if (playingAudioClip != null && instrument.gameObject.activeSelf && !instrument.isBroken && Vector3.Distance(instrument.transform.position, transform.position) < START_MOVING_INSTRUMENT_DIST)
         {
             instrument.moving = true;
+            instrument.initialPos = instrument.transform.position;
             t = 0;
         }
     }
