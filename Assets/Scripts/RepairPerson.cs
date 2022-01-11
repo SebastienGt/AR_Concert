@@ -20,20 +20,26 @@ public class RepairPerson : MonoBehaviour
         GetComponent<Animator>().enabled = false;
     }
 
+    public void StartMovingToInstrument()
+    {
+        var dist = Vector3.Distance(transform.position, instrument.transform.position);
+        if (!movingToInstrument && dist < maxDistance && instrument.isBroken)
+        {
+            //initialPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+            t = 0;
+            movingToInstrument = true;
+            GetComponent<Animator>().enabled = true;
+            transform.LookAt(instrument.transform.position);
+        } 
+    }
+
     void FixedUpdate()
     {
         if (instrument)
         {
             var dist = Vector3.Distance(transform.position, instrument.transform.position);
-            if (!movingToInstrument && dist < maxDistance && instrument.isBroken)
-            {
-                initialPos = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-                t = 0;
-                movingToInstrument = true;
-                GetComponent<Animator>().enabled = true;
-                transform.LookAt(instrument.transform.position);
-            } 
-            else if (movingToInstrument)
+            StartMovingToInstrument();
+            if (movingToInstrument)
             {
                 transform.position = Vector3.Lerp(transform.position, instrument.transform.position, LERP_SPEED * t);
                 t += Time.fixedDeltaTime;
@@ -47,6 +53,7 @@ public class RepairPerson : MonoBehaviour
             } 
             else if (movingToInit)
             {
+                initialPos = transform.parent.transform.position; // Move to marker
                 transform.position = Vector3.Lerp(transform.position, initialPos, LERP_SPEED * t);
                 t += Time.fixedDeltaTime;
                 transform.LookAt(initialPos);
